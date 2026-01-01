@@ -26,7 +26,7 @@ class FullscreenText(Gtk.Window):
         label.set_max_width_chars(200)
 
         label.modify_fg(Gtk.StateFlags.NORMAL, Gdk.color_parse("white"))
-        label.set_name("largetype")
+        label.set_name("bigtext")
 
         self.add(label)
         self.connect("key-press-event", lambda w, e: Gtk.main_quit())
@@ -44,4 +44,3 @@ if __name__ == "__main__":
     )
 
     Gtk.main()
-te
