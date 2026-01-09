@@ -29,10 +29,10 @@ class KeywordQueryEventListener(EventListener):
                                         on_enter=HideWindowAction()))
 
         if text:
-            subprocess.Popen(['python3', '.local/share/ulauncher/extensions/largetype/show_text.py', text])
+            print ("duh <<<<<<<<<<<<<<<<<<<<<<<")
+            #subprocess.Popen(['python3', '.local/share/ulauncher/extensions/largetype/show_text.py', text])
 
-        #return RenderResultListAction(items)
-        return []
+        return RenderResultListAction(items)
     
 
 
@@ -40,7 +40,7 @@ class ItemEnterEventListener(EventListener):
 
     def on_event(self, event, extension):
 
-        logger.error('...')
+        #logger.error('...')
         data = event.get_data()
         text = "123"
         subprocess.Popen(['python3', '.local/share/ulauncher/extensions/largetype/show_text.py', text])
