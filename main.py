@@ -7,9 +7,9 @@ from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAct
 import subprocess
 import logging
 
-logger = logging.getLogger("ulauncher.extension.largetype")
+logger = logging.getLogger("ulauncher.extension.bigtext")
 
-class LargeType(Extension):
+class BigText(Extension):
 
     def __init__(self):
         super().__init__()
@@ -23,7 +23,7 @@ class KeywordQueryEventListener(EventListener):
         text = event.get_argument()
         
         items = []
-        items.append(ExtensionResultItem(icon='images/largetype.png',
+        items.append(ExtensionResultItem(icon='images/bigtext.png',
                                         name='%s in BIG text' % text,
                                         description='on main monitor.',
                                         on_enter=ExtensionCustomAction(text, keep_app_open=True)))
@@ -35,7 +35,7 @@ class ItemEnterEventListener(EventListener):
 
     def on_event(self, event, extension):
         data = event.get_data()
-        subprocess.Popen(['python3', '.local/share/ulauncher/extensions/largetype/show_text.py', data])
+        subprocess.Popen(['python3', '.local/share/ulauncher/extensions/bigtext/show_text.py', data])
 
 if __name__ == '__main__':
-    LargeType().run()
+    BigText().run()

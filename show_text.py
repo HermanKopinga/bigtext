@@ -5,7 +5,7 @@ from gi.repository import Gtk, Gdk
 
 class FullscreenText(Gtk.Window):
     def __init__(self, text):
-        super().__init__(title="LargeType")
+        super().__init__(title="BigText")
         self.set_decorated(False)
         self.fullscreen()
 
@@ -34,10 +34,10 @@ class FullscreenText(Gtk.Window):
 
 
 if __name__ == "__main__":
-    text = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Large Type by Herman Kopinga"
+    text = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Big Text by Herman Kopinga"
     win = FullscreenText(text)
     style_provider = Gtk.CssProvider()
-    style_provider.load_from_path("/home/herman/.local/share/ulauncher/extensions/largetype/styles.css")
+    style_provider.load_from_path(".local/share/ulauncher/extensions/bigtext/styles.css")
     Gtk.StyleContext.add_provider_for_screen(
         Gdk.Screen.get_default(), style_provider,
         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION

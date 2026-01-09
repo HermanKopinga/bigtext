@@ -1,19 +1,19 @@
 {
     "required_api_version": "2",
-    "name": "Large type Display",
+    "name": "Big text",
     "description": "Shows entered text in large letters over a dark background.",
     "developer_name": "Herman Kopinga",
-    "icon": "images/largetype.png",
-    "id": "nl.hermankopinga.bigtext",
+    "icon": "images/bigtext.png",
+    "id": "com.github.hermankopinga.bigtext",
     "url": "https://github.com/hermankopinga/bigtext",  
     "options": {
       "query_debounce": 0.1
     },
     "preferences": [
       {
-        "id": "largetype_kw",
+        "id": "bigtext_kw",
         "type": "keyword",
-        "name": "Large type",
+        "name": "Big text",
         "description": "Shows entered text in large letters over a dark background.",
         "default_value": "big"
       }
