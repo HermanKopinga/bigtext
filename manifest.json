@@ -7,7 +7,7 @@
     "id": "nl.hermankopinga.bigtext",
     "url": "https://github.com/hermankopinga/bigtext",  
     "options": {
-      "query_debounce": 2
+      "query_debounce": 0.1
     },
     "preferences": [
       {
