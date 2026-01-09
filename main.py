@@ -26,7 +26,7 @@ class KeywordQueryEventListener(EventListener):
         items.append(ExtensionResultItem(icon='images/largetype.png',
                                         name='Large type',
                                         description='Print full screen: %s' % text,
-                                        on_enter=HideWindowAction()))
+                                        on_enter=ExtensionCustomAction(text, keep_app_open=True)))
 
         if text:
             print ("duh <<<<<<<<<<<<<<<<<<<<<<<")
