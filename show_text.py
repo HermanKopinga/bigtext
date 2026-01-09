@@ -13,9 +13,26 @@ class FullscreenText(Gtk.Window):
         visual = screen.get_rgba_visual()
         if visual and screen.is_composited():
             self.set_visual(visual)
+            # Allow the window to be painted with an alpha channel
+            self.set_app_paintable(True)
 
-        self.override_background_color(Gtk.StateFlags.NORMAL, Gdk.RGBA(0, 0, 0, 0.8))
-        
+        self.set_name("bigtext-window")
+        css = """
+        #bigtext-window {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* add label color via CSS instead of using deprecated modify_fg */
+        #bigtext {
+            color: white;
+        }
+        """
+        provider = Gtk.CssProvider()
+        provider.load_from_data(css.encode())
+        # use USER priority so this inline provider wins over any external stylesheet
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(), provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_USER
+        )
 
         label = Gtk.Label()
         label.set_text(text)
@@ -25,7 +42,6 @@ class FullscreenText(Gtk.Window):
         label.set_line_wrap(True)
         label.set_max_width_chars(200)
 
-        label.modify_fg(Gtk.StateFlags.NORMAL, Gdk.color_parse("white"))
         label.set_name("bigtext")
 
         self.add(label)
