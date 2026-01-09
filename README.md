@@ -1,7 +1,7 @@
 # What
 Full screen widget with the entered text in large type.
 
-# WHy
+# Why
 I loved this feature from my stint with Alfred on OSx, cmd+L would fill the screen with your current prompt. I've dabbled in other launchers to recreate this behaviour.
 
 # Still, why
