@@ -3,3 +3,8 @@
     font-weight: bold;
     color: white;
 }
+
+/* Ensure the fullscreen window has a solid black background */
+#bigtext-window {
+    background-color: rgba(0, 0, 0, 0.8);
+}
