@@ -1,4 +1,5 @@
 import sys
+import os
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, Gdk
@@ -17,12 +18,13 @@ class FullscreenText(Gtk.Window):
             self.set_app_paintable(True)
 
         self.set_name("bigtext-window")
+        # target the window and the label explicitly so the RGBA background is applied
         css = """
-        #bigtext-window {
+        window#bigtext-window {
             background-color: rgba(0, 0, 0, 0.8);
+            background-image: none;
         }
-        /* add label color via CSS instead of using deprecated modify_fg */
-        #bigtext {
+        label#bigtext {
             color: white;
         }
         """
@@ -53,7 +55,10 @@ if __name__ == "__main__":
     text = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Big Text by Herman Kopinga"
     win = FullscreenText(text)
     style_provider = Gtk.CssProvider()
-    style_provider.load_from_path(".local/share/ulauncher/extensions/bigtext/styles.css")
+    # load external stylesheet from the extension directory if present
+    style_path = os.path.join(os.path.dirname(__file__), "styles.css")
+    if os.path.exists(style_path):
+        style_provider.load_from_path(style_path)
     Gtk.StyleContext.add_provider_for_screen(
         Gdk.Screen.get_default(), style_provider,
         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
